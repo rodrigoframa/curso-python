@@ -5,6 +5,15 @@ class Humano:
 
     def __init__(self, nome):
         self.nome = nome
+        self._idade = None
+
+    def get_idade(self):
+        return self._idade
+    
+    def set_idade(self, idade):
+        if idade < 0:
+            raise ValueError('Idade deve ser um número positivo!')
+        self._idade = idade
 
     def das_cavernas(self):
         self.especie = 'Homo Neanderthalensis'
@@ -30,12 +39,5 @@ class HomoSapiens(Humano):
 
 if __name__ == "__main__":
     jose = HomoSapiens('José')
-    grokn = Neanderthal('Grokn')
-
-    print(
-        f'Evolução (a partir da classe): {", ".join(HomoSapiens.especies())}')
-    print(f'Evolução (a partir da instancia): {", ".join(jose.especies())}')
-    print(f'Homo Sapiens evoluído? {HomoSapiens.is_evoluido()}')
-    print(f'Neanderthal evoluído? {Neanderthal.is_evoluido()}')
-    print(f'José evoluído? {jose.is_evoluido()}')
-    print(f'Grokn evoluído? {grokn.is_evoluido()}')
+    jose.set_idade(40)
+    print(f'Nome: {jose.nome} Idade: {jose.get_idade()}')

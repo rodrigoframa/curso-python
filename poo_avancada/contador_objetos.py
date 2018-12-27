@@ -3,6 +3,7 @@ class ClasseSimples:
     contador = 0
 
     def __init__(self):
+        # self.__class__.contador += 1
         self.contar()
 
     @classmethod
